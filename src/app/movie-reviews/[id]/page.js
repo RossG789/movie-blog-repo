@@ -15,7 +15,7 @@ export default async function PostPage({ params }) {
   return (
     <div>
       <h1>Reviews</h1>
-      <h3>{review.username}'s Review</h3>
+      <h3>{review.username}&aposs Review</h3>
       <h2>{review.movie}</h2>
       <h2>{review.release}</h2>
       <Image
