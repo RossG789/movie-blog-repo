@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className=" px-6 mx-auto flex justify-normal items-center sm:flex-row">
         <Link href="/">
           <Image
-            className=" rounded-lg hover:border-4 border-amber-400"
+            className=" rounded-lg"
             src="/logo.jpg"
             height={150}
             width={150}
@@ -17,16 +17,16 @@ export default function Navbar() {
 
         <div className="w-60 px-6 mx-auto flex justify-between items-center sm:flex-row">
           <Link
-            href="/movies"
+            href="/movie-reviews"
             className="text-l text-black no-underline hover:text-slate-700"
           >
             Movie Reviews
           </Link>
           <Link
-            href="/blog"
+            href="/add-review"
             className="text-l text-black no-underline hover:text-slate-700"
           >
-            Blog
+            Add Review
           </Link>
         </div>
       </div>
