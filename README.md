@@ -1,3 +1,5 @@
+![image](https://github.com/RossG789/movie-blog-repo/assets/123095012/7d7bfe30-db87-4a75-92c7-5610b70efcb7)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
