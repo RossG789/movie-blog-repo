@@ -10,6 +10,7 @@ export default async function PostPage({ params }) {
 
   // console.log({ params });
   // console.log(post);
+
   revalidatePath("/movie-reviews/[id]", "page");
 
   return (
@@ -27,7 +28,7 @@ export default async function PostPage({ params }) {
       />
       <p>{review.review}</p>
 
-      <CommentForm />
+      <CommentForm id={params.id} />
 
       <Link href={`/movie-reviews`} className="text-emerald-500">
         Back to the reviews
