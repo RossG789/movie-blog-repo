@@ -27,7 +27,7 @@ export default async function PostPage({ params }) {
         alt="An image that says Muvie"
       />
       <p className="mt-6 p-2 w-96 h-20 text-start text-base bg-stone-600 rounded-lg">
-        {review.username} said: "{review.review}"
+        {review.username} said: &quot;{review.review}&quot;
       </p>
 
       <CommentForm id={params.id} />

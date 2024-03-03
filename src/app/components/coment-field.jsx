@@ -16,7 +16,7 @@ export default async function CommentField({ id }) {
           key={comment.id}
         >
           <div>
-            <p>Anon said:"{comment.comment_content}"</p>
+            <p>Anon said:&quot;{comment.comment_content}&quot;</p>
           </div>
         </div>
       ))}
