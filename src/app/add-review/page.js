@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import Submit from "../components/SubmitReview";
+import { genreGetter } from "../functions/getters";
 
 export default async function Page() {
   async function handleReview(formData) {
@@ -19,50 +20,73 @@ export default async function Page() {
     redirect("/movie-reviews");
   }
 
+  let genres = await genreGetter();
+
   return (
-    <div className="">
-      <h2 className="text-xl">Add Your Review</h2>
+    <div>
+      <div className="mt-6 mb-6 flex justify-center">
+        <h2 className="text-xl">Add Your Review</h2>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-96 h-full flex justify-center bg-teal-700 rounded-lg">
+          <form
+            action={handleReview}
+            className=" w-80 flex flex-col justify-center"
+          >
+            <label className="text-slate-100 mt-2 mb-2">Your Name</label>
+            <input
+              className="px-1 rounded text-gray-700"
+              name="username"
+              placeholder="Name"
+            />
 
-      <form action={handleReview} className="">
-        <label className="">Your Name</label>
-        <input
-          className="text-gray-700"
-          name="username"
-          placeholder="Your Name"
-        />
+            <label className="text-slate-100 mt-2 mb-2">Movie Name</label>
+            <input
+              className="px-1 rounded text-gray-700"
+              name="movie"
+              placeholder="Movie"
+            />
 
-        <label className="">Movie Name</label>
-        <input className="text-gray-700" name="movie" placeholder="Movie" />
+            <label className="text-slate-100 mt-2 mb-2">Year Released</label>
+            <input
+              className="px-1 rounded text-gray-700"
+              name="release"
+              placeholder="eg. 2014"
+            />
 
-        <label className="">Year Released</label>
-        <input
-          className="text-gray-700"
-          name="release"
-          placeholder="Release Date"
-        />
+            <label className="text-slate-100 mt-2 mb-2">Image URL</label>
+            <input
+              className="px-1 rounded text-gray-700"
+              name="imgUrl"
+              placeholder="http:"
+            />
 
-        <label className="">Image URL</label>
-        <input
-          className="text-gray-700"
-          name="imgUrl"
-          placeholder="Image URL"
-        />
+            <label className="text-slate-100 mt-2 mb-2">Your Review</label>
+            <input
+              className="px-1 rounded text-gray-700"
+              name="review"
+              placeholder="Review"
+            />
 
-        <label className="">Your Review</label>
-        <input className="text-gray-700" name="review" placeholder="Review" />
+            <label
+              htmlFor=" genres"
+              className="rounded text-slate-100 mt-2 mb-2 "
+            >
+              Select genre.
+            </label>
 
-        <Submit />
+            <select className="text-gray-700 " name="genres" id="genres">
+              {genres.map((genre) => (
+                <option key={genre.id} value={genre.id}>
+                  {genre.genre_name}
+                </option>
+              ))}
+            </select>
 
-        {/* <label htmlFor="genres" className="">
-          Select genres (hold shift to select multiple)
-        </label> */}
-        {/* <select name="genres" id="genres" multiple>
-          {genres.map((genre) => (
-            <option value={genre.id}>{genre.name}</option>
-          ))}
-        </select> */}
-        {/* <SubmitButton thing="book" /> */}
-      </form>
+            <Submit />
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
